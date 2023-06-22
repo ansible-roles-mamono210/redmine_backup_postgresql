@@ -1,9 +1,18 @@
 ---
 - name: Verify
-  gather_facts: true
+  gather_facts: false
   hosts: all
 
   tasks:
+    - name: Check if files are archived
+      ansible.builtin.stat:
+        path: "{{ redmine_backup_data_dir }}/{{ redmine_pg_dump_archived_file }}"
+      register: file_stat
+
+    - name: Make sure file exists
+      ansible.builtin.assert:
+        that: file_stat.stat.exists == true
+
     - name: Check OS version
       ansible.builtin.command: cat /etc/redhat-release
       register: os_version
