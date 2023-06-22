@@ -6,7 +6,7 @@ redmine_backup_data_dir: /tmp/redmine-backup
 redmine_pg_dump_file: redmine.psql
 
 # Archived dumped database file
-redmine_pg_dump_archived_file: redmine.psql.tar.gz
+redmine_archived_pg_dump_file: redmine.psql.tar.gz
 
 # Host running the database
 redmine_db_host: localhost
