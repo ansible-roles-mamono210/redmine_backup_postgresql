@@ -4,10 +4,6 @@
   become: true
 
   tasks:
-    - name: Set variables of molecule.yml to molecule_platforms
-      ansible.builtin.set_fact:
-        molecule_platforms: "{{ molecule_yml.platforms }}"
-
     - name: Execute
       ansible.builtin.include_role:
         name: redmine_backup_postgresql
